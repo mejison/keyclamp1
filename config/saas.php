@@ -3,9 +3,10 @@
 return [
     'trial_days' => 14,
 
+    /https://dashboard.stripe.com/products/prod_KJp6iuOL6nWR8f
     'plans' => [
-        'price_1Jek64A3r5vdQMYQPg3LE6ty' => 'Pro — $20',
-        'price_1Jek64A3r5vdQMYQu7A3WKpj' => 'Premium — $50',
+        'prod_KJp6iuOL6nWR8f' => 'Basic — $5',
+        'prod_KJp5eBpaqV566m' => 'Standard — $10',
     ],
 
     'cancelation_reasons' => [
