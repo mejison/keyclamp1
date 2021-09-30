@@ -4,8 +4,8 @@ return [
     'trial_days' => 14,
 
     'plans' => [
-        'price_1JfCkEK083iokL2qONfLOivP' => 'Basic — $5',
         'price_1JfCmaK083iokL2q6alghCtr' => 'Standard — $10',
+        'price_1JfCkEK083iokL2qONfLOivP' => 'Basic — $5',
     ],
 
     'cancelation_reasons' => [
