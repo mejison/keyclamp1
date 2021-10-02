@@ -3,9 +3,9 @@
 namespace Tests\Feature\Central;
 
 use App\Actions\CreateTenantAction;
-use App\Domain;
+use App\Models\Domain;
 use App\Exceptions\DomainCannotBeChangedException;
-use App\Tenant;
+use App\Models\Tenant;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

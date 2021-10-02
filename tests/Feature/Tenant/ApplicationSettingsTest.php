@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Tenant;
 
-use App\User;
+use App\Models\User;
 use Tests\TenantTestCase;
 
 class ApplicationSettingsTest extends TenantTestCase
@@ -15,8 +15,8 @@ class ApplicationSettingsTest extends TenantTestCase
         $owner = User::first();
         $this->actingAs($owner)->get(route('tenant.settings.application'))
             ->assertSuccessful();
-        
-        $mortal = factory(User::class)->create();
+
+        $mortal = User::factory()->create();
         $this->actingAs($mortal)->get(route('tenant.settings.application'))
             ->assertForbidden();
     }

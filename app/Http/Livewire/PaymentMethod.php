@@ -6,12 +6,14 @@ use Livewire\Component;
 
 class PaymentMethod extends Component
 {
+    protected $listeners = ['billingUpdated' => '$refresh'];
+
     public $paymentMethod = '';
 
     public function render()
     {
         return view('livewire.tenant.payment-method', [
-            'intent' => tenant()->createSetupIntent()
+            'intent' => tenant()->createSetupIntent(),
         ]);
     }
 

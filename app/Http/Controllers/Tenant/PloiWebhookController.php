@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Tenant;
 
-use App\Domain;
+use App\Models\Domain;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

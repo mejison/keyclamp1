@@ -3,7 +3,7 @@
 namespace Tests;
 
 use App\Actions\CreateTenantAction;
-use App\Tenant;
+use App\Models\Tenant;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Support\Str;
 
@@ -14,11 +14,11 @@ abstract class TestCase extends BaseTestCase
     /**
      * Most tests don't need this. Unless they test the billing page.
      *
-     * @var boolean
+     * @var bool
      */
     protected $createStripeCustomer = false;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -28,6 +28,7 @@ abstract class TestCase extends BaseTestCase
     protected function createTenant(array $data = [], string $domain = null, bool $createStriperCustomer = null): Tenant
     {
         $domain = $domain ?? Str::random('10');
+
         return (new CreateTenantAction)(array_merge([
             'company' => 'Foo company',
             'name' => 'John Doe',

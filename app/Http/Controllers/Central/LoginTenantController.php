@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Central;
 
 use App\Http\Controllers\Controller;
-use App\Tenant;
+use App\Models\Tenant;
 use Illuminate\Http\Request;
 
 class LoginTenantController extends Controller

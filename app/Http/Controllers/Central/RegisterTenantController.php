@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Central;
 
 use App\Actions\CreateTenantAction;
 use App\Http\Controllers\Controller;
-use App\Tenant;
+use App\Models\Tenant;
 use Illuminate\Http\Request;
 
 class RegisterTenantController extends Controller

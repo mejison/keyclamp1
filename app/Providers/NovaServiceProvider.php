@@ -4,11 +4,11 @@ namespace App\Providers;
 
 use App\Nova\Central\Admin;
 use App\Nova\Central\Domain;
-use App\Nova\Central\Tenant as TenantResource;
 use App\Nova\Central\SubscriptionCancelation;
+use App\Nova\Central\Tenant as TenantResource;
 use App\Nova\Tenant\Post;
 use App\Nova\Tenant\User;
-use App\Tenant;
+use App\Models\Tenant;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
@@ -59,11 +59,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function gate()
     {
         Gate::define('viewNova', function ($user) {
-            if ($user instanceof \App\User) {
+            if ($user instanceof \App\Models\User) {
                 return $user->isOwner();
             }
 
-            /** @var \App\Admin $user */
+            /** @var \App\Models\Admin $user */
 
             return true;
         });

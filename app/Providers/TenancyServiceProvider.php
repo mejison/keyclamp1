@@ -5,17 +5,19 @@ namespace App\Providers;
 use App\Jobs\AddDomainToPloi;
 use App\Jobs\CreateTenantAdmin;
 use App\Jobs\RemoveDomainFromPloi;
+use App\Models\Tenant;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Cashier\Cashier;
 use Stancl\JobPipeline\JobPipeline;
-use Stancl\Tenancy\Listeners;
 use Stancl\Tenancy\Events;
 use Stancl\Tenancy\Events\DatabaseCreated;
 use Stancl\Tenancy\Events\DatabaseDeleted;
 use Stancl\Tenancy\Events\DomainCreated;
 use Stancl\Tenancy\Events\DomainDeleted;
 use Stancl\Tenancy\Jobs;
+use Stancl\Tenancy\Listeners;
 use Stancl\Tenancy\Middleware;
 use Stancl\Tenancy\Resolvers\DomainTenantResolver;
 
@@ -117,9 +119,9 @@ class TenancyServiceProvider extends ServiceProvider
 
     public function register()
     {
-        // 
+        //
     }
-    
+
     public function boot()
     {
         if ($this->app->environment('production')) {
@@ -148,8 +150,7 @@ class TenancyServiceProvider extends ServiceProvider
     protected function mapRoutes()
     {
         if (file_exists(base_path('routes/tenant.php'))) {
-            Route::namespace('App\Http\Controllers\Tenant')
-                ->group(base_path('routes/tenant.php'));
+            Route::group([], base_path('routes/tenant.php'));
         }
     }
 

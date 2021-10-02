@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Domain;
 use Illuminate\Config\Repository;
 use Illuminate\Support\Facades\Http;
 

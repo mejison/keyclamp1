@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
-use App\Tenant;
-use App\User;
+use App\Models\Tenant;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -28,13 +28,13 @@ class UserSettingsController extends Controller
                 'max:255',
                 Rule::unique('tenant.users')->ignore(auth()->user()),
                 function ($attribute, $value, $fail) {
-                    if (auth()->user()->isOwner() && 
+                    if (auth()->user()->isOwner() &&
                         Tenant::where('email', $value)
                             ->where('id', '!=', tenant('id'))
                             ->exists()) {
                         $fail("The $attribute is occupied by another tenant.");
                     }
-                }
+                },
             ],
         ]);
 

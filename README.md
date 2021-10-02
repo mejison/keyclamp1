@@ -12,7 +12,7 @@ Think of this as `laravel new`, except it comes with many more features you'd ha
 
 ### Requirements
 
-The boilerplate uses Laravel 7. PHP 7.2, 7.3, 7.4, and 8.0 are supported.
+The boilerplate uses Laravel 8. PHP 7.2, 7.3, 7.4, and 8.0 are supported.
 
 # Setting it up
 
@@ -24,7 +24,7 @@ These are the steps to get the app up and running. Once you're using the app, fe
 
 1. Clone the repository
 2. `composer install`
-3. Rename `.env.example` to `.env` and run `php artisan key:generate`
+3. Copy `.env.example` to `.env` and run `php artisan key:generate`
 4. Create a MySQL database. If you want to use a non-root user, make sure that the user has permissions to create other users and access all databases (or change the DB manager used for `mysql` to the one that does not create permissions). Add the database name to your `.env`
 5. Start Redis (it's used as the queue driver — feel free to change this to any other *asynchronous* driver)
 6. Run migrations: `php artisan migrate`
@@ -121,12 +121,12 @@ Again, sticking with this is recommended. The exception would be if your central
 
 ### Models
 
-There are very few models in the boilerplate so I'm not imposing any custom namespace structure on you.
+There are very few models in the boilerplate so I'm not imposing any custom namespace structure on you (the default `App\Models` namespace is used).
 
 That said, I recommend using:
 
-- `App\Models\Central`
-- `App\Models\Tenant`
+- `App\Models\Central\*`
+- `App\Models\Tenant\*`
 
 Or if it works better for you, you can even go with `App\Central\*` and `App\Tenant\*` (and split controllers that way too).
 

@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Central;
 
-use App\Tenant;
-use App\User;
+use App\Models\Tenant;
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 

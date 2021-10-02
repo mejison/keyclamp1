@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Domain;
+use App\Models\Domain;
 use Livewire\Component;
 
 class Domains extends Component

@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
-
+    
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.x/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     @stack('head')
 </head>
@@ -46,14 +46,13 @@
                                 </div>
                                 <div x-show="expanded" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg" style="display: none;">
                                     <div class="py-1 rounded-md bg-white shadow-xs">
-                                        <a href="{{ route('tenant.settings.user') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">My Account
+                                        <a href="{{ route('tenant.settings.user') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">My account
                                         </a>
                                         @if(auth()->user()->isOwner())
-                                        <a href="{{ route('tenant.settings.application') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">Settings
+                                        <a href="{{ route('tenant.settings.application') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">Application settings
                                         </a>
-                                        <!--
-                                        <a href="{{ config('nova.path') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">Admin panel</a>
-                                        -->
+                                        <a href="{{ config('nova.path') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">Admin panel
+                                        </a>
                                         @endif
                                         <a href="{{ route('tenant.logout') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100"
                                         onclick="event.preventDefault();

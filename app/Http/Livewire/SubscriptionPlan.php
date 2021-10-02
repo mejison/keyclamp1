@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\SubscriptionCancelation;
+use App\Models\SubscriptionCancelation;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -49,7 +49,7 @@ class SubscriptionPlan extends Component
             }
 
             $subscription->create(tenant()->defaultPaymentMethod()->asStripePaymentMethod());
-            
+
             $this->success = 'Subscription created.';
             $this->error = '';
         }
@@ -61,7 +61,7 @@ class SubscriptionPlan extends Component
     {
         DB::transaction(function () use ($cancelationReason) {
             tenant()->subscription('default')->cancel();
-    
+
             SubscriptionCancelation::create([
                 'tenant_id' => tenant('id'),
                 'reason' => $cancelationReason,
@@ -85,7 +85,7 @@ class SubscriptionPlan extends Component
     protected function refreshPlan()
     {
         if (tenant()->on_active_subscription) {
-            $this->plan = tenant()->subscription('default')->stripe_plan;
+            $this->plan = tenant()->subscription('default')->stripe_price;
         }
     }
 

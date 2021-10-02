@@ -12,12 +12,12 @@ abstract class TenantTestCase extends TestCase
     /**
      * Create tenant and initialize tenancy?
      *
-     * @var boolean
+     * @var bool
      */
     protected $tenancy = true;
     protected $shouldSeed = true;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 

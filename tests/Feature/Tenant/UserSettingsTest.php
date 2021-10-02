@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Tenant;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Validation\ValidationException;
 use Tests\TenantTestCase;
 
@@ -29,7 +29,7 @@ class UserSettingsTest extends TenantTestCase
             'email' => 'second@tenant',
         ]);
 
-        $user2 = factory(User::class)->create();
+        $user2 = User::factory()->create();
         $this->actingAs($user2);
 
         $this->withoutExceptionHandling()->post(route('tenant.settings.user.personal'), [

@@ -2,11 +2,11 @@
 
 namespace App\Actions;
 
-use App\Tenant;
+use App\Models\Tenant;
 
 /**
  * Create a tenant with the necessary information for the application.
- * 
+ *
  * We don't use a listener here, because we want to be able to create "simplified" tenants in tests.
  * This action is only used when we need to create the tenant properly (with billing logic etc).
  */

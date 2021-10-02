@@ -1,14 +1,30 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Tenant;
-use Faker\Generator as Faker;
+use App\Models\Tenant;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Tenant::class, function (Faker $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => $faker->password,
-    ];
-});
+class TenantFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Tenant::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'name' => $this->faker->name,
+            'email' => $this->faker->email,
+            'password' => $this->faker->password,
+        ];
+    }
+}

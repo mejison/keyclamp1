@@ -2,7 +2,9 @@
 
 use App\PloiManager;
 
-function ploi(): PloiManager
-{
-    return app(PloiManager::class);
+if (! function_exists('ploi')) {
+    function ploi(): PloiManager
+    {
+        return app(PloiManager::class);
+    }
 }

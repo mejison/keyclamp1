@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Domain;
+use App\Models\Domain;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Stancl\Tenancy\Resolvers\DomainTenantResolver;

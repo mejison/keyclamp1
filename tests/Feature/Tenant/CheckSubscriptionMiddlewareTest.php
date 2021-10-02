@@ -3,7 +3,7 @@
 namespace Tests\Feature\Tenant;
 
 use App\Actions\CreateTenantAction;
-use App\Tenant;
+use App\Models\Tenant;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Illuminate\Foundation\Testing\DatabaseMigrations;

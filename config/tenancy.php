@@ -1,12 +1,14 @@
 <?php
-
 declare(strict_types=1);
 
+use Database\Seeders\DatabaseSeeder;
+use Database\Seeders\TenantDatabaseSeeder;
+
 return [
-    'tenant_model' => App\Tenant::class,
+    'tenant_model' => App\Models\Tenant::class,
     'id_generator' => Stancl\Tenancy\UUIDGenerator::class,
 
-    'domain_model' => App\Domain::class,
+    'domain_model' => App\Models\Domain::class,
 
     /**
      * The list of domains hosting your central app.
@@ -64,6 +66,7 @@ return [
              * You can customize the grants given to these users by changing the $grants property.
              */
             'mysql' => Stancl\Tenancy\TenantDatabaseManagers\PermissionControlledMySQLDatabaseManager::class,
+
 
             /**
              * Disable the pgsql manager above, and enable the one below if you

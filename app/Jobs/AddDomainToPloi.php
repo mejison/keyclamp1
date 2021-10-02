@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Domain;
+use App\Models\Domain;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Bus\Queueable;

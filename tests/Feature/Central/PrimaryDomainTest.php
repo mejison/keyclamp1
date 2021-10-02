@@ -3,7 +3,7 @@
 namespace Tests\Feature\Central;
 
 use App\Exceptions\NoPrimaryDomainException;
-use App\Tenant;
+use App\Models\Tenant;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +14,7 @@ class PrimaryDomainTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -25,14 +25,14 @@ class PrimaryDomainTest extends TestCase
             'as' => 'foo',
             'action' => function ($bar) {
                 return $bar;
-            }
+            },
         ]);
     }
 
     /** @test */
     public function tenant_has_one_primary_domain()
     {
-        $tenant = factory(Tenant::class)->create();
+        $tenant = Tenant::factory()->create();
         $domain = $tenant->createDomain([
             'domain' => 'acme',
         ]);
@@ -47,7 +47,7 @@ class PrimaryDomainTest extends TestCase
     /** @test */
     public function making_a_domain_primary_will_make_previous_primary_domains_secondary()
     {
-        $tenant = factory(Tenant::class)->create();
+        $tenant = Tenant::factory()->create();
         $foo = $tenant->createDomain([
             'domain' => 'foo',
             'is_primary' => true,
@@ -69,7 +69,7 @@ class PrimaryDomainTest extends TestCase
     /** @test */
     public function tenant_routes_are_generated_using_the_primary_domain()
     {
-        $tenant = factory(Tenant::class)->create();
+        $tenant = Tenant::factory()->create();
         $domain = $tenant->createDomain([
             'domain' => 'acme.localhost',
         ]);
@@ -85,7 +85,7 @@ class PrimaryDomainTest extends TestCase
     /** @test */
     public function a_primary_domain_is_needed_to_generate_a_tenant_route()
     {
-        $tenant = factory(Tenant::class)->create();
+        $tenant = Tenant::factory()->create();
         $domain = $tenant->createDomain([
             'domain' => 'acme.localhost',
         ]);
@@ -102,7 +102,7 @@ class PrimaryDomainTest extends TestCase
             'localhost',
         ]]);
 
-        $tenant = factory(Tenant::class)->create();
+        $tenant = Tenant::factory()->create();
         $domain = $tenant->createDomain([
             'domain' => 'acme',
         ]);
